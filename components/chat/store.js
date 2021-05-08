@@ -13,8 +13,15 @@ const getChat = (id) => {
         students: id,
       };
     }
+    if (id) {
+      filter = {
+        teacher: id,
+      };
+    }
+
     await Model.find(filter)
       .populate("students")
+      .populate("teacher")
       .exec((err, populated) => {
         if (err) {
           return reject(err);

@@ -23,6 +23,7 @@ router.post("/", upload.single("file"), (req, res) => {
       req.body.student,
       req.body.chat,
       req.body.message,
+      req.body.teacher,
       req.body.file
     )
     .then((message) => {
@@ -34,7 +35,7 @@ router.post("/", upload.single("file"), (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  const filterMessage = req.query.student || null;
+  const filterMessage = req.query.student || req.query.chat || null;
   controller
     .getMessage(filterMessage)
     .then((data) => {

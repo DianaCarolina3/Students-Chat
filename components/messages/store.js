@@ -10,9 +10,11 @@ const getMessage = (filterMessage) => {
     filter = {};
     if (filterMessage) {
       filter = {
-        student: filterMessage,
+        chat: filterMessage,
+        // student: filterMessage,
       };
     }
+
     Model.find(filter)
       //coneccion de messages y student collections
       .populate("student")

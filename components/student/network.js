@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
   controller
-    .addStudent(req.body.name)
+    .addStudent(req.body.name, req.body.age)
     .then((data) => {
       response.sucess(req, res, data, 201);
     })

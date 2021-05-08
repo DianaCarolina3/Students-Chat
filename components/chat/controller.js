@@ -1,12 +1,13 @@
 const store = require("./store");
 
-const addChat = (students) => {
+const addChat = (students, teacher) => {
   return new Promise((resolve, reject) => {
     if (!students || !Array.isArray(students)) {
       console.error("No data or no found");
       return reject("Invalid data or data no found");
     }
     const chatstudents = {
+      teacher: teacher,
       students: students,
     };
     const chat = store.add(chatstudents);
@@ -14,13 +15,13 @@ const addChat = (students) => {
   });
 };
 
-const getChat = (studentID) => {
+const getChat = (ID) => {
   return new Promise((resolve, reject) => {
-    if (!studentID) {
+    if (!ID) {
       console.error("No data or no found");
       return reject("Data no found");
     }
-    const id = store.getList(studentID);
+    const id = store.getList(ID);
     resolve(id);
   });
 };

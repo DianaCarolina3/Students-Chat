@@ -7,6 +7,10 @@ const mySchema = new Schema({
     type: Schema.ObjectId,
     ref: "Chat",
   },
+  teacher: {
+    type: String,
+    required: true,
+  },
   student: {
     type: Schema.ObjectId,
     ref: "Student",

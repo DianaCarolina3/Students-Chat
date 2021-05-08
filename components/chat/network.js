@@ -5,7 +5,7 @@ const response = require("../../network/response");
 
 router.post("/", (req, res) => {
   controller
-    .addChat(req.body.students)
+    .addChat(req.body.students, req.body.teacher)
     .then((data) => {
       response.sucess(req, res, data, 201);
     })
@@ -14,10 +14,10 @@ router.post("/", (req, res) => {
     });
 });
 
-router.get("/:studentID", (req, res) => {
-  const filterIdStudent = req.params.studentID;
+router.get("/:ID", (req, res) => {
+  const filterId = req.params.ID;
   controller
-    .getChat(filterIdStudent)
+    .getChat(filterId)
     .then((data) => {
       response.sucess(req, res, data, 200);
     })

@@ -1,8 +1,8 @@
 const store = require("./store");
 
-const addStudent = (name) => {
+const addStudent = (name, age) => {
   return new Promise((resolve, reject) => {
-    if (!name) {
+    if (!name || !age) {
       console.error("No data");
       return reject("Error no data");
     }
@@ -10,8 +10,9 @@ const addStudent = (name) => {
     const student = {
       number: Math.floor(Math.random() * 100),
       name: name,
+      age: age,
     };
-    const newStudent = store.add(student);
+    const newStudent = store.add(student, age);
     resolve(newStudent);
   });
 };
